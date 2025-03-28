@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #eaeaea, #0e0b0bd0);
+    color: #ffffff;
+    margin: 101; /* Αφαίρεση περιθωρίων */
+    padding: 100px; /* Εσωτερικό padding */
+}
+
+.leaderboard-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Διαφάνεια για το φόντο */
+    border-radius: 2px; /* Στρογγυλεμένες γωνίες */
+    padding: 15px; /* Εσωτερικό padding */
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5); /* Σκιά για βάθος */
+    width: 109%; /* Πλήρες πλάτος */
+    max-width: 1300px; /* Μέγιστο πλάτος για να μην ξεπερνάει την οθόνη */
+    margin: 15px auto; /* Κεντράρισμα */
+    max-height: 554px; /* Ρύθμιση ύψους όπως απαιτείται */
+    overflow-y: auto; /* Ενεργοποίηση κατακόρυφης κύλισης */
+}
+
+h1 {
+    text-align: left;
+    color: #fff; 
+    font-size: 14px; /* Αυξήσαμε το μέγεθος */
+    margin: 0;    
+    padding: 0;    
+}
+
+h2 {
+    text-align: left;
+    color: #f39d12; 
+    font-size: 28px; /* Αυξήσαμε το μέγεθος */
+    margin: 0;     
+    padding: 0; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Απόσταση από τους τίτλους */
+}
+
+table th {
+    font-size: 0.8em; /* Ρύθμιση μεγέθους γραμματοσειράς */
+    text-transform: capitalize; /* Μετατροπή σε πεζά */
+    background-color: transparent; /* Διαφάνεια για καλύτερη ορατότητα */
+    padding: 8px; /* Προσθήκη padding */
+    color: #fff; /* Χρώμα κειμένου */
+    border-bottom: transparent; /* Σκούρο περίγραμμα κάτω από το header */
+}
+
+th, td {
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Διαφάνεια για τα κελιά */
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: rgba(0, 0, 0, 0.5); /* Σκούρο φόντο για το header */
+    color: white; /* Χρώμα κειμένου */
+}
+
+.first-team {
+    background-color: #ffcc00; /* Χρυσό για την πρώτη ομάδα */
+}
+
+.second-team {
+    background-color: #888787; /* Ασημί για τη δεύτερη ομάδα */
+}
+
+.third-team {
+    background-color: #cd7f32; /* Χάλκινο για την τρίτη ομάδα */
+}
+
+.normal-team {
+    background-color: transparent; /* Διαφάνεια για τις κανονικές ομάδες */
+}
+
+.server-logo {
+    width: 55px; /* Ρυθμίστε το πλάτος του λογότυπου */
+    height: auto; /* Διατηρεί την αναλογία */
+    margin-right: 6px; /* Αυξήστε την απόσταση μεταξύ του λογότυπου και του τίτλου */
+    margin-left: 10px; /* Προσθέστε λίγο περιθώριο αριστερά για να μετακινήσετε το λογότυπο δεξιά */
+}
+
+.title-container {
+    display: flex; /* Χρήση Flexbox για ευθυγράμμιση */
+    align-items: center; /* Κεντράρισμα κατακόρυφα */
+    margin-bottom: 20px; /* Απόσταση από τον πίνακα */
+}
+
+.title-text {
+    display: flex; /* Χρήση Flexbox για τους τίτλους */
+    flex-direction: column; /* Στοίχιση σε στήλες */
+}
+
+h1, h2 {
+    margin: 0; /* Αφαίρεση περιθωρίων */
+}
