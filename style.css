@@ -8,14 +8,15 @@ body {
 
 .leaderboard-container {
     background-color: rgba(255, 255, 255, 0.1); /* Διαφάνεια για το φόντο */
-    border-radius: 2px; /* Στρογγυλεμένες γωνίες */
-    padding: 15px; /* Εσωτερικό padding */
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5); /* Σκιά για βάθος */
-    width: 109%; /* Πλήρες πλάτος */
+    border-radius: 3px; /* Στρογγυλεμένες γωνίες */
+    padding: 20px; /* Εσωτερικό padding */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Σκιά για βάθος */
+    width: 100%; /* Πλήρες πλάτος */
     max-width: 1300px; /* Μέγιστο πλάτος για να μην ξεπερνάει την οθόνη */
     margin: 15px auto; /* Κεντράρισμα */
     max-height: 554px; /* Ρύθμιση ύψους όπως απαιτείται */
     overflow-y: auto; /* Ενεργοποίηση κατακόρυφης κύλισης */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Διαφανές περίγραμμα */
 }
 
 h1 {
