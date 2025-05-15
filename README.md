@@ -29,6 +29,14 @@ Started as a personal experiment to practice DOM manipulation and backend integr
 
 ---
 
+## ⚠️ Note
+
+This project is **not complete** and contains several bugs.  
+Development was rushed and primarily done for testing and learning purposes.  
+Use it accordingly, and feel free to contribute if you want to help improve it.
+
+---
+
 ## 💡 Technologies Used
 
 - HTML & CSS  
