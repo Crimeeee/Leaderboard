@@ -34,3 +34,5 @@ Started as a personal experiment to practice DOM manipulation and backend integr
 - HTML & CSS  
 - JavaScript (basic interaction)  
 - PHP & MySQL (planned backend)
+
+---
