@@ -37,18 +37,6 @@ Started as a personal experiment to practice DOM manipulation and backend integr
 
 ---
 
-## 📂 Project Structure (planned)
-
-/leaderboard
-├── index.html
-├── style.css
-├── script.js
-├── submit.php
-└── db/
-└── config.php
-
----
-
 ## 🤝 Contributing
 
 If you’d like to pick it up or propose changes, feel free to open a pull request or issue.  
