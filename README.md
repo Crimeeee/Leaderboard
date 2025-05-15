@@ -8,7 +8,7 @@ A simple web-based leaderboard system designed to display and rank users based o
 
 ![Status](https://img.shields.io/badge/status-paused-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Made with HTML](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-orange)
+![Made with](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-orange)
 
 ---
 
@@ -17,8 +17,8 @@ A simple web-based leaderboard system designed to display and rank users based o
 - Add and display players with their scores  
 - Sort leaderboard dynamically  
 - Simple UI with clean HTML/CSS  
-- Lightweight JavaScript functionality (planned)  
-- PHP/MySQL integration for storing scores (planned)
+- Lightweight JavaScript functionality *(planned)*  
+- PHP/MySQL integration for storing scores *(planned)*
 
 ---
 
@@ -32,7 +32,38 @@ Started as a personal experiment to practice DOM manipulation and backend integr
 ## 💡 Technologies Used
 
 - HTML & CSS  
-- JavaScript (basic interaction)  
-- PHP & MySQL (planned backend)
+- JavaScript *(basic interaction)*  
+- PHP & MySQL *(planned backend)*
 
 ---
+
+## 📂 Project Structure (planned)
+
+/leaderboard
+├── index.html
+├── style.css
+├── script.js
+├── submit.php
+└── db/
+└── config.php
+
+---
+
+## 🤝 Contributing
+
+If you’d like to pick it up or propose changes, feel free to open a pull request or issue.  
+Happy to collaborate if time allows!
+
+---
+
+## 📬 Contact
+
+**Email**: me@karafylles.me  
+**LinkedIn**: [linkedin.com/in/konstantinos-karafylles-2171b130a](https://linkedin.com/in/konstantinos-karafylles-2171b130a)  
+**GitHub**: [GitHub](https://github.com/Crimeeee)  
+
+---
+
+## 📝 License
+
+This project is open-source under the [MIT License](LICENSE).
