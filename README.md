@@ -55,7 +55,7 @@ Happy to collaborate if time allows!
 ## 📬 Contact
 
 **Email**: me@karafylles.me  
-**LinkedIn**: [linkedin.com/in/konstantinos-karafylles-2171b130a](https://linkedin.com/in/konstantinos-karafylles-2171b130a)  
+**LinkedIn**: [LinkedIn](https://linkedin.com/in/konstantinos-karafylles-2171b130a)  
 **GitHub**: [GitHub](https://github.com/Crimeeee)  
 
 ---
