@@ -1,4 +1,4 @@
-// TODO: MAKE JAVASCRIPT TAKE INFO FROM LUA SCRIPT
+// TODO: MAKE JAVASCRIPT TAKE INFO FROM LUA SCRIPT!!!
 const leaderboardData = [
     { team: "SERBIAN_MAFIA", houseRobbery: 0, mission: 0, bankShopRobberies: 0, hitAndRun: 0, crates: 0, cargo: 0, vangelico: 0, drugs: 0, craft: 0, siege: 0 },
     { team: "THE_CRIMES", houseRobbery: 0, mission: 0, bankShopRobberies: 0, hitAndRun: 0, crates: 0, cargo: 0, vangelico: 0, drugs: 0, craft: 0, siege: 0 },
