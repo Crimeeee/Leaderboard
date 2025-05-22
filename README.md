@@ -7,6 +7,7 @@ A simple web-based leaderboard system designed to display and rank users based o
 ---
 
 ![Status](https://img.shields.io/badge/status-paused-yellow)
+![Updates](https://img.shields.io/badge/updates-planned-lightgrey)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Made with](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-orange)
 
