@@ -1,4 +1,33 @@
-# GTA RP Operations Board
+<div align="center">
+
+# CITY OF CRIME
+## GTA RP OPERATIONS BOARD
+
+**A cinematic faction intelligence portal built for ambitious GTA RP communities.**
+
+[![Presentation ready](https://img.shields.io/badge/STATUS-PRESENTATION%20READY-e3272f?style=for-the-badge&labelColor=0b0b0d)](#presentation-quick-start)
+[![Offline demo](https://img.shields.io/badge/MODE-OFFLINE%20DEMO-f5f3f1?style=for-the-badge&labelColor=0b0b0d)](#presentation-quick-start)
+[![Node.js](https://img.shields.io/badge/BACKEND-NODE.JS%20%2B%20MYSQL-ff4348?style=for-the-badge&labelColor=0b0b0d)](#production-quick-start)
+
+`FACTIONS` · `TERRITORIES` · `EVENTS` · `HALL OF FAME` · `STAFF CONTROL`
+
+</div>
+
+---
+
+> **Built by Crime** — a red-and-black Power Index for tracking who rules the city.
+
+| Start here | Use it for |
+| --- | --- |
+| [Offline presentation](#presentation-quick-start) | Open the complete demo in a browser immediately |
+| [Production setup](#production-quick-start) | Connect Node.js and MySQL |
+| [GTA RP integration](#gta-rp-server-integration) | Hand the framework-independent contract to a server developer |
+| [API reference](#api-reference) | Connect secure server-side systems |
+| [Staff security](#staff-console-and-production-security) | Prepare safe management access |
+
+---
+
+## The city at a glance
 
 A red-and-black public portal for a GTA RP server. It provides faction standings, faction dossiers, player rankings, territory control, events, announcements, and a seasonal Hall of Fame.
 
@@ -7,7 +36,7 @@ The project has two modes:
 - **Offline presentation mode:** open `public/index.html` directly in a browser. It uses included demo records and needs no Node.js, MySQL, Discord, or internet connection.
 - **Production mode:** run the Express server with MySQL configured. The website then reads real data from its API.
 
-## Features
+## What is inside
 
 - Paginated faction leaderboard with type filters, search, and sort controls
 - Top-faction cards and individual faction dossiers
@@ -17,6 +46,9 @@ The project has two modes:
 - Announcements, patch notes, seasonal archive, and Hall of Fame
 - Demo staff console with browser-local edits for presentations
 - Lightweight Node.js and MySQL production foundation
+
+> [!TIP]
+> The included portal works as a complete visual presentation even before a GTA RP framework, MySQL server, Discord application, or host has been chosen.
 
 ## Presentation quick start
 
@@ -29,6 +61,17 @@ public/index.html
 It immediately loads 32 demo factions. You can test faction cards, the full board, filters, search, sorting, pagination, faction detail pages, territory map, event calendar, bulletin, season archive, and local demo edits in **Staff**.
 
 Demo staff edits are stored only in that browser's local storage. They do not change source files, the server, or MySQL. Clear the browser's site data to reset them.
+
+<details>
+<summary><strong>Presentation checklist</strong></summary>
+
+1. Open **Board** to show the city-wide Power Index.
+2. Select a top-faction card to open its dossier.
+3. Use **Territories**, **Events**, and **Hall of fame** in the top navigation.
+4. Open **Staff** to create or edit a demo faction without touching a database.
+5. Use filters, search, sorting, and pagination to demonstrate scale.
+
+</details>
 
 ## Production quick start
 
@@ -147,6 +190,9 @@ The connector should:
 
 Because ESX, QBCore, vRP, and custom servers store faction data differently, no Lua connector is included. Adding one before the server framework is selected would not be reliable.
 
+> [!IMPORTANT]
+> The game client must never call protected leaderboard endpoints directly. Score changes must come from a trusted server-side resource after the event is verified.
+
 ## Staff console and production security
 
 The included **Staff** screen is deliberately a presentation tool. In offline/demo mode it saves only to browser-local storage.
@@ -199,3 +245,13 @@ http://localhost:3000/
 http://localhost:3000/api/health
 http://localhost:3000/api/dashboard
 ```
+
+---
+
+<div align="center">
+
+**CITY OF CRIME · OPERATIONS BOARD**
+
+`CREATED BY CRIME`
+
+</div>
