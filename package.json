@@ -1,0 +1,15 @@
+{
+  "name": "gta-rp-operations-board",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web leaderboard for GTA RP server factions.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  }
+}

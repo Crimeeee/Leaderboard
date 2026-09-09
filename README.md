@@ -1,66 +1,58 @@
-# 🏆 Leaderboard Project
+# GTA RP Operations Board
 
-A simple web-based leaderboard system designed to display and rank users based on their scores — ideal for small games, contests, or community challenges.
+A responsive, custom leaderboard for GTA Roleplay factions, teams, departments, and civilian organizations.
 
-> ⚠️ This project is currently **on hold** due to other commitments, but I may revisit it in the future. Feel free to fork, explore, or contribute if you'd like to expand it further.
+## Features
 
----
+- Faction standings for operations, territory, events, and support
+- Filters for criminal, government, and civilian organizations
+- Search and sorting by score, name, or activity
+- Custom pagination that renders 25 factions at a time for responsive performance with large leaderboards
+- Custom faction dossiers for the top three factions, with generated insignia and configurable team colors
+- Live summary cards for the leading faction and city-wide activity
+- Responsive layout for desktop and mobile browsers
 
-![Status](https://img.shields.io/badge/status-paused-yellow)
-![Updates](https://img.shields.io/badge/updates-planned-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Made with](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-orange)
+## Presentation mode
 
----
+Run `npm start` immediately to present the website at `http://localhost:3000`. Without a `.env` file, the application automatically uses safe, built-in demo data. The protected admin endpoints are disabled in demo mode.
 
-## 📌 Features
+## Production setup
 
-- Add and display players with their scores  
-- Sort leaderboard dynamically  
-- Simple UI with clean HTML/CSS  
-- Lightweight JavaScript functionality *(planned)*  
-- PHP/MySQL integration for storing scores *(planned)*
+1. Create a MySQL database and run `schema.sql`.
+2. Copy `.env.example` to `.env` and fill in your database credentials.
+3. Install dependencies with `npm install`.
+4. Start the website and API with `npm start`.
 
----
+The website is then available at `http://localhost:3000`. The public data endpoint is `GET /api/leaderboard`.
 
-## 🚧 Project Status
+## Developer API
 
-**Paused**  
-Started as a personal experiment to practice DOM manipulation and backend integration. Although development is paused, the repo remains public for reference and learning purposes.
+The public `GET /api/leaderboard` endpoint returns the active factions and server branding. `GET /api/health` verifies that Node.js can reach MySQL, which is useful for hosting monitors.
 
----
+Management endpoints require an `Authorization: Bearer <ADMIN_API_TOKEN>` header. Keep this token private and generate a long random value before production use.
 
-## ⚠️ Note
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/admin/factions` | Create a faction |
+| `PUT` | `/api/admin/factions/:id` | Replace a faction's name, type, scores, and active state |
 
-This project is **not complete** and contains several bugs.  
-Development was rushed and primarily done for testing and learning purposes.  
-Use it accordingly, and feel free to contribute if you want to help improve it.
+Example update request:
 
----
+```bash
+curl -X PUT http://localhost:3000/api/admin/factions/1 \
+  -H "Authorization: Bearer your-admin-token" \
+  -H "Content-Type: application/json" \
+  -d "{\"name\":\"Serbian Mafia\",\"type\":\"criminal\",\"operations\":1280,\"territory\":740,\"events\":420,\"support\":190,\"isActive\":true}"
+```
 
-## 💡 Technologies Used
+## Managing data
 
-- HTML & CSS  
-- JavaScript *(basic interaction)*  
-- PHP & MySQL *(planned backend)*
+Every faction has a `name`, `type`, `operations`, `territory`, `events`, and `support` value. The total score is calculated automatically from the four score columns.
 
----
+The initial faction data is included in `schema.sql`. A developer can update the records through the protected API, an admin panel, or a direct MySQL integration with the game server.
 
-## 🤝 Contributing
+Never commit the `.env` file because it contains database credentials.
 
-If you’d like to pick it up or propose changes, feel free to open a pull request or issue.  
-Happy to collaborate if time allows!
+## License
 
----
-
-## 📬 Contact
-
-**Email**: me@karafylles.me  
-**LinkedIn**: [LinkedIn](https://linkedin.com/in/konstantinos-karafylles-2171b130a)  
-**GitHub**: [GitHub](https://github.com/Crimeeee)  
-
----
-
-## 📝 License
-
-This project is open-source under the [MIT License](LICENSE).
+MIT. See [LICENSE](LICENSE).
