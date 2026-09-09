@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="el">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,120 +7,78 @@
     <link rel="stylesheet" href="css/style.css">
     <title>City of Crime | Operations Board</title>
 </head>
-
 <body>
     <main class="app-shell">
         <header class="topbar">
-            <a class="brand" href="#" aria-label="City of Crime Operations Board">
+            <a class="brand" href="#overview" aria-label="City of Crime Operations Board">
                 <span class="brand-mark"><i></i><b>C</b></span>
-                <span>
-                    <strong id="server-name">CITY OF CRIME</strong>
-                    <small>UNDERGROUND ROLEPLAY NETWORK</small>
-                </span>
+                <span><strong id="server-name">CITY OF CRIME</strong><small>UNDERGROUND ROLEPLAY NETWORK</small></span>
             </a>
-            <div class="season">
-                <span class="status-dot"></span>
-                <span><strong id="season-name">SEASON 01</strong><small>LIVE TRACKING</small></span>
-            </div>
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a href="#overview" data-view-link="overview">Board</a>
+                <a href="#territories" data-view-link="territories">Territories</a>
+                <a href="#events" data-view-link="events">Events</a>
+                <a href="#seasons" data-view-link="seasons">Hall of fame</a>
+                <a href="#admin" data-view-link="admin">Staff</a>
+            </nav>
+            <div class="topbar-status"><span id="discord-status">DISCORD · DEMO</span><div class="season"><span class="status-dot"></span><span><strong id="season-name">SEASON 01</strong><small>LIVE TRACKING</small></span></div></div>
         </header>
 
         <section class="hero">
-            <div>
-                <p class="eyebrow">/// EST. 2026 · FACTION INTELLIGENCE</p>
-                <h1>Rule the<br><em>City.</em></h1>
-                <p class="intro">The official seasonal power index for every faction, department, and organization that controls the city.</p>
-            </div>
-            <div class="hero-seal">
-                <span class="seal-ring">CITY<br>CONTROL</span>
-                <div class="updated">
-                    <span>LAST UPDATED</span>
-                    <strong id="last-updated">--:--</strong>
-                </div>
-            </div>
+            <div><p class="eyebrow">/// EST. 2026 · FACTION INTELLIGENCE</p><h1>Rule the<br><em>City.</em></h1><p class="intro">The official seasonal power index for every faction, department, and organization that controls the city.</p></div>
+            <div class="hero-seal"><span class="seal-ring">CITY<br>CONTROL</span><div class="updated"><span>LAST UPDATED</span><strong id="last-updated">--:--</strong></div></div>
         </section>
 
-        <section class="stats" aria-label="Leaderboard statistics">
-            <article><span>ACTIVE FACTIONS</span><strong id="faction-count">0</strong><small>across the city</small></article>
-            <article><span>COMBINED SCORE</span><strong id="combined-score">0</strong><small>season activity</small></article>
-            <article><span>LEADING FACTION</span><strong id="leading-faction">—</strong><small id="leading-score">0 pts</small></article>
-            <article><span>TOP ACTIVITY</span><strong id="top-activity">—</strong><small id="top-activity-score">0 completions</small></article>
+        <section id="overview" class="view active">
+            <section class="stats" aria-label="Leaderboard statistics">
+                <article><span>ACTIVE FACTIONS</span><strong id="faction-count">0</strong><small>across the city</small></article>
+                <article><span>COMBINED SCORE</span><strong id="combined-score">0</strong><small>season activity</small></article>
+                <article><span>LEADING FACTION</span><strong id="leading-faction">—</strong><small id="leading-score">0 pts</small></article>
+                <article><span>TOP ACTIVITY</span><strong id="top-activity">—</strong><small id="top-activity-score">0 completions</small></article>
+            </section>
+            <section class="faction-dossiers" aria-labelledby="dossiers-title">
+                <div class="section-label"><div><p class="eyebrow">/// CITY POWER PLAYERS</p><h2 id="dossiers-title">Faction <em>dossiers</em></h2></div><p>The three organizations currently shaping the city.</p></div>
+                <div id="faction-cards" class="faction-cards"></div>
+            </section>
+            <section class="board-panel">
+                <div class="board-heading"><div><p class="eyebrow">/// SEASONAL POWER INDEX</p><h2>Most wanted <em>factions</em></h2></div><p>Rankings are earned from verified operations, city control, organized events, and faction support.</p></div>
+                <div class="controls"><div class="filter-group" role="group" aria-label="Filter factions"><button class="filter active" type="button" data-filter="all">All factions</button><button class="filter" type="button" data-filter="criminal">Criminal</button><button class="filter" type="button" data-filter="government">Government</button><button class="filter" type="button" data-filter="civilian">Civilian</button></div><div class="control-actions"><label class="search"><span class="sr-only">Search factions</span><input id="faction-search" type="search" placeholder="Search faction..."></label><select id="sort-by" aria-label="Sort leaderboard"><option value="score">Sort: Total score</option><option value="name">Sort: Name</option><option value="activity">Sort: Most active</option></select></div></div>
+                <div class="board-tools"><span id="results-summary">Loading factions...</span><span class="score-key"><i></i>Total score = Operations + Territory + Events + Support</span></div>
+                <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Faction</th><th>Type</th><th>Operations</th><th>Territory</th><th>Events</th><th>Support</th><th>Total score</th></tr></thead><tbody id="leaderboard-body"></tbody></table></div>
+                <p id="empty-state" class="empty-state" hidden>No factions match your filters.</p>
+                <nav id="pagination" class="pagination" aria-label="Leaderboard pages" hidden><button id="previous-page" class="page-button" type="button">← Prev</button><span id="page-status">Page 1 of 1</span><button id="next-page" class="page-button" type="button">Next →</button></nav>
+            </section>
+            <section class="split-section">
+                <div class="panel"><div class="panel-title"><h2>Player <em>rankings</em></h2><select id="player-category" aria-label="Player ranking category"><option value="influence">Influence</option><option value="operations">Operations</option><option value="territories">Territories</option><option value="events">Event wins</option></select></div><ol id="player-rankings" class="ranking-list"></ol></div>
+                <div class="panel"><div class="panel-title"><h2>City <em>bulletin</em></h2><a href="#announcements" data-view-link="announcements">View all</a></div><div id="activity-feed" class="activity-feed"></div></div>
+            </section>
         </section>
 
-        <section class="faction-dossiers" aria-labelledby="dossiers-title">
-            <div class="section-label">
-                <div>
-                    <p class="eyebrow">/// CITY POWER PLAYERS</p>
-                    <h2 id="dossiers-title">Faction <em>dossiers</em></h2>
-                </div>
-                <p>The three organizations currently shaping the city.</p>
-            </div>
-            <div id="faction-cards" class="faction-cards"></div>
+        <section id="faction-detail" class="view" hidden>
+            <button class="back-button" type="button" data-back-to="overview">← Back to board</button>
+            <div id="faction-detail-content"></div>
         </section>
 
-        <section class="board-panel">
-            <div class="board-heading">
-                <div>
-                    <p class="eyebrow">/// SEASONAL POWER INDEX</p>
-                    <h2>Most wanted <em>factions</em></h2>
-                </div>
-                <p>Rankings are earned from verified operations, city control, organized events, and faction support.</p>
-            </div>
-            <div class="controls">
-                <div class="filter-group" role="group" aria-label="Filter factions">
-                    <button class="filter active" type="button" data-filter="all">All factions</button>
-                    <button class="filter" type="button" data-filter="criminal">Criminal</button>
-                    <button class="filter" type="button" data-filter="government">Government</button>
-                    <button class="filter" type="button" data-filter="civilian">Civilian</button>
-                </div>
-                <div class="control-actions">
-                    <label class="search">
-                        <span class="sr-only">Search factions</span>
-                        <input id="faction-search" type="search" placeholder="Search faction...">
-                    </label>
-                    <select id="sort-by" aria-label="Sort leaderboard">
-                        <option value="score">Sort: Total score</option>
-                        <option value="name">Sort: Name</option>
-                        <option value="activity">Sort: Most active</option>
-                    </select>
-                </div>
-            </div>
-            <div class="board-tools">
-                <span id="results-summary">Loading factions...</span>
-                <span class="score-key"><i></i> Total score = Operations + Territory + Events + Support</span>
-            </div>
-
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Faction</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Operations</th>
-                            <th scope="col">Territory</th>
-                            <th scope="col">Events</th>
-                            <th scope="col">Support</th>
-                            <th scope="col">Total score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body"></tbody>
-                </table>
-            </div>
-            <p id="empty-state" class="empty-state" hidden>No factions match your filters.</p>
-            <nav id="pagination" class="pagination" aria-label="Leaderboard pages" hidden>
-                <button id="previous-page" class="page-button" type="button" aria-label="Previous page">← Prev</button>
-                <span id="page-status">Page 1 of 1</span>
-                <button id="next-page" class="page-button" type="button" aria-label="Next page">Next →</button>
-            </nav>
+        <section id="territories" class="view" hidden>
+            <div class="section-label"><div><p class="eyebrow">/// LIVE CITY CONTROL</p><h2>Territory <em>map</em></h2></div><p>Select a district to inspect its controlling faction and latest contest.</p></div>
+            <div class="territory-layout"><div id="territory-map" class="territory-map" aria-label="Interactive territory map"></div><aside id="territory-inspector" class="panel territory-inspector"></aside></div>
         </section>
 
-        <footer>
-            <span>© <span id="current-year"></span> <span id="footer-server-name">CITY OF CRIME</span></span>
-            <span class="creator-credit">CREATED BY <strong>CRIME</strong></span>
-            <span>OFFICIAL CITY OF CRIME POWER INDEX</span>
-        </footer>
+        <section id="events" class="view" hidden>
+            <div class="section-label"><div><p class="eyebrow">/// LIVE OPERATIONS SCHEDULE</p><h2>Event <em>calendar</em></h2></div><p>Upcoming city events and verified recent results.</p></div>
+            <div class="split-section"><div class="panel"><div class="panel-title"><h2>Upcoming <em>events</em></h2></div><div id="upcoming-events" class="event-list"></div></div><div class="panel"><div class="panel-title"><h2>Recent <em>results</em></h2></div><div id="event-results" class="event-list"></div></div></div>
+        </section>
+
+        <section id="announcements" class="view" hidden><div class="section-label"><div><p class="eyebrow">/// DISPATCHES & PATCH NOTES</p><h2>City <em>bulletin</em></h2></div><p>Announcements and seasonal changelog from command.</p></div><div id="announcements-list" class="announcement-list"></div></section>
+        <section id="seasons" class="view" hidden><div class="section-label"><div><p class="eyebrow">/// CITY LEGENDS</p><h2>Hall of <em>fame</em></h2></div><p>Archived seasonal champions and their final influence.</p></div><div id="season-archive" class="archive-grid"></div></section>
+
+        <section id="admin" class="view" hidden>
+            <div class="section-label"><div><p class="eyebrow">/// STAFF CONSOLE</p><h2>Operations <em>control</em></h2></div><p>Demo changes remain only in this browser. Configured deployments can save through the protected API.</p></div>
+            <div class="admin-grid"><form id="admin-form" class="panel admin-form"><h2 id="admin-form-title">Manage <em>faction</em></h2><input id="admin-id" type="hidden"><label>Name<input id="admin-name" maxlength="80" required></label><label>Type<select id="admin-type"><option value="criminal">Criminal</option><option value="government">Government</option><option value="civilian">Civilian</option></select></label><label>Team color<input id="admin-color" type="color" value="#c8182a"></label><div class="score-inputs"><label>Operations<input id="admin-operations" type="number" min="0" value="0" required></label><label>Territory<input id="admin-territory" type="number" min="0" value="0" required></label><label>Events<input id="admin-events" type="number" min="0" value="0" required></label><label>Support<input id="admin-support" type="number" min="0" value="0" required></label></div><label>Logo URL (optional)<input id="admin-logo" maxlength="255" placeholder="https://..."></label><label class="checkbox-label"><input id="admin-active" type="checkbox" checked> Active faction</label><div class="admin-actions"><button class="page-button" type="submit">Save faction</button><button id="admin-reset" class="text-button" type="button">New faction</button></div><p id="admin-message" class="form-message" aria-live="polite"></p></form><div class="panel"><div class="panel-title"><h2>Roster <em>control</em></h2><span id="admin-mode"></span></div><div id="admin-factions" class="admin-list"></div></div></div>
+        </section>
+        <footer><span>© <span id="current-year"></span> <span id="footer-server-name">CITY OF CRIME</span></span><span class="creator-credit">CREATED BY <strong>CRIME</strong></span><span>OFFICIAL CITY OF CRIME POWER INDEX</span></footer>
     </main>
+    <script src="js/demo-data.js"></script>
     <script src="js/leaderboard.js"></script>
 </body>
-
 </html>
