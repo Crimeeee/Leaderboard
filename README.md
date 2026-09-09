@@ -16,6 +16,8 @@ A responsive, custom leaderboard for GTA Roleplay factions, teams, departments, 
 
 Run `npm start` immediately to present the website at `http://localhost:3000`. Without a `.env` file, the application automatically uses safe, built-in demo data. The protected admin endpoints are disabled in demo mode.
 
+You can also open `public/index.html` directly in a browser for an offline presentation. It automatically displays demo factions when the Node.js API is unavailable. Use `npm start` for the production/API version.
+
 ## Production setup
 
 ## Project structure
