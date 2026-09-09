@@ -62,7 +62,7 @@ const pool = databaseEnabled
     })
     : null;
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json({ limit: "16kb" }));
 
 function isValidFactionType(type) {
