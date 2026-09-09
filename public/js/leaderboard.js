@@ -11,6 +11,33 @@ let activeSort = "score";
 let searchTerm = "";
 let currentPage = 1;
 const pageSize = 25;
+const offlineFactionData = [
+    ["Serbian Mafia", "criminal", "#c8182a"], ["Los Santos Police", "government", "#3b75c9"],
+    ["The Families", "criminal", "#5f9d4e"], ["Los Santos EMS", "government", "#df4d57"],
+    ["Italian Syndicate", "criminal", "#b68a42"], ["Downtown Customs", "civilian", "#8c57b8"],
+    ["Peaky Blinders", "criminal", "#a6684a"], ["San Andreas News", "civilian", "#329ba8"],
+    ["Ballas", "criminal", "#8655d6"], ["Vagos", "criminal", "#d0a622"],
+    ["Lost MC", "criminal", "#a9a9a9"], ["Marabunta Grande", "criminal", "#35a2c7"],
+    ["The Triads", "criminal", "#cd4338"], ["Los Santos Sheriff", "government", "#af8753"],
+    ["Department of Justice", "government", "#e0bf72"], ["San Andreas Dispatch", "government", "#77a7bd"],
+    ["Los Santos Fire Rescue", "government", "#e75a3e"], ["City Hall", "government", "#4d97be"],
+    ["Weazel News", "civilian", "#c73c43"], ["Premium Deluxe Motorsport", "civilian", "#e38a38"],
+    ["Benny's Original Motor Works", "civilian", "#d75b39"], ["Los Santos Taxi", "civilian", "#deb839"],
+    ["The Vanilla Unicorn", "civilian", "#d25191"], ["Bahama Mamas", "civilian", "#b54c93"],
+    ["Galaxy Nightclub", "civilian", "#624fb3"], ["Redline Racing", "civilian", "#cf3c31"],
+    ["The Cartel", "criminal", "#bc4b37"], ["Yakuza", "criminal", "#b64749"],
+    ["The Brotherhood", "criminal", "#7e6b58"], ["Gruppe Sechs", "government", "#526f8a"],
+    ["Los Santos Tow", "civilian", "#d39336"], ["Pacific Bluffs Security", "civilian", "#4f8491"]
+].map(([name, type, color], index) => ({
+    id: index + 1,
+    name,
+    type,
+    color,
+    operations: Math.max(180, 1280 - index * 35),
+    territory: Math.max(70, 740 - index * 21),
+    events: Math.max(95, 420 - index * 9),
+    support: Math.max(60, 245 - index * 5)
+}));
 
 function totalScore(faction) {
     return faction.operations + faction.territory + faction.events + faction.support;
@@ -242,6 +269,18 @@ loadLeaderboard()
     })
     .catch((error) => {
         console.error(error);
+        if (window.location.protocol === "file:") {
+            serverConfig = {
+                name: "CITY OF CRIME",
+                season: "SEASON 01 · PRESENTATION",
+                factions: offlineFactionData
+            };
+            setServerDetails();
+            renderStats();
+            renderFactionCards();
+            renderLeaderboard();
+            return;
+        }
         document.getElementById("empty-state").textContent = "Leaderboard data is currently unavailable.";
         document.getElementById("empty-state").hidden = false;
     });
