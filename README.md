@@ -18,6 +18,18 @@ Run `npm start` immediately to present the website at `http://localhost:3000`. W
 
 ## Production setup
 
+## Project structure
+
+```text
+public/
+  index.html             Website markup
+  css/style.css          Custom public styling
+  js/leaderboard.js      Leaderboard UI logic
+server.js                Node.js API and static-file server
+schema.sql               MySQL schema and starter data
+.env                     Private production configuration
+```
+
 1. Create a MySQL database and run `schema.sql`.
 2. Copy `.env.example` to `.env` and fill in your database credentials.
 3. Install dependencies with `npm install`.
