@@ -252,6 +252,6 @@ http://localhost:3000/api/dashboard
 
 **CITY OF CRIME · OPERATIONS BOARD**
 
-`CREATED BY CRIME`
+`CREATED BY: CRIME`
 
 </div>
